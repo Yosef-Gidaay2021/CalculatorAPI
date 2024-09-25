@@ -32,7 +32,14 @@ namespace Calculator.Controllers
 
          return left / right;
        }
+       [HttpGet("modulo")]
+       public ActionResult<decimal> Modulo([FromQuery] decimal left, [FromQuery] decimal rigth){
+       if(rigth==0){
+        return BadRequest("Division by zero not allowed");
+       }
 
+       return left % rigth;
+       }
     
     }
 }
